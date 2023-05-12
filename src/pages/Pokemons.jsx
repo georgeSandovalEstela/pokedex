@@ -6,7 +6,13 @@ import { getPokemonsByPage } from "../http/api";
 function Pokemons() {
   const [page, setPage] = useState(0);
   const [pokemons, setPokemons] = useState([]);
-  const changePage = (number) => {};
+  const changePageMinus = () => {
+    if (page > 0) setPage(page - 1);
+  };
+  const changePagePlus = () => {
+    setPage(page + 1);
+    console.log(1);
+  };
   useEffect(() => {
     getPokemonsByPage(page, setPokemons);
   }, [page]);
@@ -24,9 +30,9 @@ function Pokemons() {
       justifyContent="center"
     >
       <Box bg="#EFCE49">
-        <Button>{"<-"}</Button>
+        <Button onClick={changePageMinus}>{"<-"}</Button>
         <Button>{page}</Button>
-        <Button>{"->"}</Button>
+        <Button onClick={changePagePlus}>{"->"}</Button>
       </Box>
       <Box
         display="grid"

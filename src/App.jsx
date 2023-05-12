@@ -16,8 +16,8 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route index element={<Home />} />
-          <Route path="/pokemons" element={<Pokemons />} />
+          <Route element={<Home />} />
+          <Route index path="/" element={<Pokemons />} />
           {/* <Route path="/discussions" element={<Discussions />} />
           <Route
             path="/discussions/:idDiscussion"
